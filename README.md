@@ -183,6 +183,7 @@ You can deploy this project using:
 - [ ] - **Add new student**
 - [ ] - **Add new teacher**
 - [ ] - **Add new book**
+- [ ] - **Add book rental**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

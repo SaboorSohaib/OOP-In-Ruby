@@ -36,7 +36,8 @@ After you're finished please remove all the comments and instructions!
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 My Enumerable ](#-decode-morse-message-)
+
+- [📖 OOP-In-Ruby](#-oop-in-ruby-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -57,9 +58,10 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 My Enumerable <a name="about-project"></a>
 
-> My Enumerable is my first project in ruby prgramming language and it uses modules.
+# 📖 OOP-In-Ruby <a name="about-project"></a>
+
+> OOP-In-Ruby is the implementation of oop in ruby language with person super-class and student, teacher as sub-class.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -93,10 +95,10 @@ After you're finished please remove all the comments and instructions!
 ### Key Features <a name="key-features"></a>
 
 > Describe between 1-3 key features of the application.
-- We used module for implemtnting the following methods. 
-- **All**
-- **Any**
-- **Filter**
+
+- **We used oop peinciple in this project**
+- **We have one super class and two base class**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -130,7 +132,8 @@ In order to run this project you need:
 Clone this repository to your desired folder:
  - mkdir my-folder
  - cd my-folder
- - git clone [(https://github.com/SaboorSohaib/my-enumerable-.git)]
+
+ - git clone [(https://github.com/SaboorSohaib/OOP-In-Ruby.git)]
 
 
 ### Install
@@ -182,8 +185,11 @@ You can deploy this project using:
 
 > Describe 1 - 3 features you will add to the project.
 
-- [ ] - **Adding None methods**
-- [ ]  **Adding more nested modules**
+- [ ] - **Add new student**
+- [ ] - **Add new teacher**
+- [ ] - **Add new book**
+- [ ] - **Add book rental**
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

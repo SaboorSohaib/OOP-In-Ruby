@@ -36,6 +36,7 @@ After you're finished please remove all the comments and instructions!
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
+
 - [📖 OOP-In-Ruby](#-oop-in-ruby-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
@@ -56,6 +57,7 @@ After you're finished please remove all the comments and instructions!
   - [📝 License ](#-license-)
 
 <!-- PROJECT DESCRIPTION -->
+
 
 # 📖 OOP-In-Ruby <a name="about-project"></a>
 
@@ -93,8 +95,10 @@ After you're finished please remove all the comments and instructions!
 ### Key Features <a name="key-features"></a>
 
 > Describe between 1-3 key features of the application.
+
 - **We used oop peinciple in this project**
 - **We have one super class and two base class**
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -128,6 +132,7 @@ In order to run this project you need:
 Clone this repository to your desired folder:
  - mkdir my-folder
  - cd my-folder
+
  - git clone [(https://github.com/SaboorSohaib/OOP-In-Ruby.git)]
 
 
@@ -184,6 +189,7 @@ You can deploy this project using:
 - [ ] - **Add new teacher**
 - [ ] - **Add new book**
 - [ ] - **Add book rental**
+
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

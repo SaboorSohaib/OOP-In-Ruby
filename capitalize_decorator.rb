@@ -8,6 +8,6 @@ class CapitalizeDecorator < BaseDecorator
   end
 
   def correct_name
-    super.upcase
+    super.capitalize
   end
 end

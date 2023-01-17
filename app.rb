@@ -57,7 +57,7 @@ class App
     if @book.empty?
       puts "There is no book\n"
     else
-      @book.each do |b| "#{b.title} written by #{b.author}"
+      @book.each { |b| puts "#{b.title} written by #{b.author}" }
     end
   end
 
@@ -65,6 +65,21 @@ class App
     if @people.empty?
       puts "There is no people\n"
     else
-      @people.each do |p| "#{p.name} \n #{p.age} \n #{p.parents_permission}"
-  end          
+      @people.each { |p| "Name:#{p.name}\n Age:#{p.age}\n Class:#{p.class}\n ID:#{p.id}" }
+    end
+    menu
+  end
+
+  def create_a_person
+    pust "Do you want to create a student (1) or teacher (2)"
+    x = get.chomp.to_i
+    case x
+      when 1
+        create_student
+      when 2
+        create_teacher
+    end
+  end
+  
+  
 end

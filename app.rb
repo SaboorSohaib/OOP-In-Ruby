@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 require_relative 'person'
 require_relative 'book'
 require_relative 'student'
@@ -130,6 +129,19 @@ class App
     person = @people[personid]
     rental = Rental.new(date, book, person)
     @rental.push(rental)
+    menu
+  end
+
+  def list_all_rentals
+    if @rental.empty?
+      puts 'There are no rentals'
+    else
+      puts 'Please type person id'
+      id = gets.chomp.to_i
+      @rental.each do |r|
+        puts '\nDate: #{r.date}, Book:\'#{r.book.title}\' by #{r.book.author}' if r.person.id == id
+      end
+    end
     menu
   end
 end

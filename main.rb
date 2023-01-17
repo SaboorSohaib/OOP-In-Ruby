@@ -28,7 +28,7 @@ def start(action)
   when 4
     app.create_a_book
   when 5
-    app.create_student
+    app.create_a_rental
   when 6
     app.list_all_rentals
   end

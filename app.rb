@@ -7,7 +7,6 @@ require_relative 'classroom'
 require_relative 'nameable'
 
 class App
-
   def initialize
     @book = []
     @people = []
@@ -59,6 +58,7 @@ class App
     else
       @book.each { |_b| puts "#{b.title} written by #{b.author}" }
     end
+    menu
   end
 
   def list_all_people
@@ -71,7 +71,7 @@ class App
   end
 
   def create_a_person
-    pust 'Do you want to create a student (1) or teacher (2)'
+    puts 'Do you want to create a student (1) or teacher (2)'
     x = gets.chomp.to_i
     case x
     when 1
@@ -79,16 +79,17 @@ class App
     when 2
       create_teacher
     end
+    menu
   end
 
   def create_student
-    puts 'Name'
+    puts 'Name:'
     name = gets.chomp
-    puts 'Age'
+    puts 'Age:'
     age = gets.chomp
-    puts 'classroom'
+    puts 'classroom:'
     clsroom = gets.chomp
-    puts 'permission'
+    puts 'permission:'
     perms = gets.chomp
     std = Student.new(name, age, clsroom, permission: perms)
     @people.push(std)
@@ -96,11 +97,11 @@ class App
   end
 
   def create_teacher
-    puts 'Name'
+    puts 'Name:'
     name = gets.chomp
-    puts 'Age'
+    puts 'Age:'
     age = gets.chomp
-    pust 'specialization'
+    puts 'specialization:'
     specilaze = gets.chomp
     teach = Teacher.new(name, age, specilaze)
     @people.push(teach)
@@ -108,9 +109,9 @@ class App
   end
 
   def create_a_book
-    pust 'Title'
+    puts 'Title:'
     tit = gets.chomp
-    puts 'Author'
+    puts 'Author:'
     auth = gets.chomp
     bo = Book.new(tit, auth)
     @book.push(bo)
@@ -118,13 +119,13 @@ class App
   end
 
   def create_a_rental
-    puts 'date(yyyy/dd/mm'
+    puts 'date(yyyy/dd/mm)'
     date = gets.chomp
-    puts 'Select a book'
+    puts 'Select a book:'
     @book.each_with_index { |_b, _i| puts "#{i} #{b.title} written by #{b.author}" }
     bookid = gets.chomp.to_i
     book = @book[bookid]
-    puts 'Select a person'
+    puts 'Select a person:'
     @people.each_with_index { |_p, _i| puts "#{i} #{p.name}" }
     personid = gets.chomp.to_i
     person = @people[personid]

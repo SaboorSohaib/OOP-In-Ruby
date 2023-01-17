@@ -55,9 +55,16 @@ class App
 
   def list_all_books
     if @book.empty?
-        puts "There is no book\n"
+      puts "There is no book\n"
     else
-        @book do |b| "#{title} written by #{author}"
+      @book.each do |b| "#{b.title} written by #{b.author}"
     end
   end
+
+  def list_all_people
+    if @people.empty?
+      puts "There is no people\n"
+    else
+      @people.each do |p| "#{p.name} \n #{p.age} \n #{p.parents_permission}"
+  end          
 end

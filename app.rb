@@ -6,7 +6,7 @@ require_relative 'rentals'
 require_relative 'classroom'
 
 class App
-    
+  attr_reader :classroom
   def initialize
     @book = []
     @people = []
@@ -14,13 +14,13 @@ class App
   end
 
   def menu
-    puts "1 - List all Books"
-    puts "2 - List all People"
-    puts "3 - Create a Person"
-    puts "4 - Create a Book"
-    puts "5 - Create a Rental"
-    puts "6 - List all Rentals for a given person id"
-    puts "7 - Exit"
+    puts '1 - List all Books'
+    puts '2 - List all People'
+    puts '3 - Create a Person'
+    puts '4 - Create a Book'
+    puts '5 - Create a Rental'
+    puts '6 - List all Rentals for a given person id'
+    puts '7 - Exit'
     input
   end
 
@@ -29,9 +29,9 @@ class App
     if action < 7
       select(action)
     elsif action == 7
-      puts "Good Bye!"
+      puts 'Good Bye!'
     else
-      puts "Please selct a number from 1 to 7 to continue"
+      puts 'Please selct a number from 1 to 7 to continue'
     end
   end
 
@@ -54,32 +54,32 @@ class App
 
   def list_all_books
     if @book.empty?
-      puts "There is no book\n"
+      puts 'There is no book\n'
     else
-      @book.each { |b| puts "#{b.title} written by #{b.author}" }
+      @book.each { |_b| puts "#{b.title} written by #{b.author}" }
     end
   end
 
   def list_all_people
     if @people.empty?
-      puts "There is no people\n"
+      puts 'There is no people\n'
     else
-      @people.each { |p| "Name:#{p.name}\n Age:#{p.age}\n Class:#{p.class}\n ID:#{p.id}" }
+      @people.each { |p| puts "Name:#{p.name} Age:#{p.age} Class:#{p.class} ID:#{p.id}" }
     end
     menu
   end
 
   def create_a_person
-    pust "Do you want to create a student (1) or teacher (2)"
+    pust 'Do you want to create a student (1) or teacher (2)'
     x = gets.chomp.to_i
     case x
-      when 1
-        create_student
-      when 2
-        create_teacher
+    when 1
+      create_student
+    when 2
+      create_teacher
     end
   end
-  
+
   def create_student
     puts 'Name'
     name = gets.chomp
@@ -120,11 +120,11 @@ class App
     puts 'date(yyyy/dd/mm'
     date = gets.chomp
     puts 'Select a book'
-    @book.each_with_index { |b, i| puts "#{i} #{b.title} written by #{b.author}" }
+    @book.each_with_index { |_b, _i| puts "#{i} #{b.title} written by #{b.author}" }
     bookid = gets.chomp.to_i
     book = @book[bookid]
-    puts "Select a person"
-    @people.each_with_index { |p, i| puts "#{i} #{p.name}" }
+    puts 'Select a person'
+    @people.each_with_index { |_p, _i| puts "#{i} #{p.name}" }
     personid = gets.chomp.to_i
     person = @people[personid]
     rental = Rental.new(date, book, person)
@@ -139,7 +139,7 @@ class App
       puts 'Please type person id'
       id = gets.chomp.to_i
       @rental.each do |r|
-        puts '\nDate: #{r.date}, Book:\'#{r.book.title}\' by #{r.book.author}' if r.person.id == id
+        puts "Date: #{r.date}, Book:#{r.book.title} by #{r.book.author}" if r.person.id == id
       end
     end
     menu

@@ -72,7 +72,7 @@ class App
 
   def create_a_person
     pust "Do you want to create a student (1) or teacher (2)"
-    x = get.chomp.to_i
+    x = gets.chomp.to_i
     case x
       when 1
         create_student
@@ -81,5 +81,29 @@ class App
     end
   end
   
-  
+  def create_student
+    puts 'Name'
+    name = gets.chomp
+    puts 'Age'
+    age = gets.chomp
+    puts 'classroom'
+    clsroom = gets.chomp
+    puts 'permission'
+    perms = gets.chomp
+    std = Student.new(name, age, clsroom, permission: perms)
+    @people.push(std)
+    menu
+  end
+
+  def create_teacher
+    puts 'Name'
+    name = gets.chomp
+    puts 'Age'
+    age = gets.chomp
+    pust 'specialization'
+    specilaze = gets.chomp
+    teach = Teacher.new(name, age, specilaze)
+    @people.push(teach)
+    menu
+  end
 end

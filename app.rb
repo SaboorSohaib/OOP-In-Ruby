@@ -4,9 +4,9 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'rentals'
 require_relative 'classroom'
+require_relative 'nameable'
 
 class App
-  attr_reader :classroom
 
   def initialize
     @book = []

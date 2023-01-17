@@ -54,13 +54,15 @@ class App
   end
 
   def create_teacher
-    puts 'Name:'
-    name = gets.chomp
-    puts 'Age:'
-    age = gets.chomp
     puts 'specialization:'
     specilaze = gets.chomp
-    teach = Teacher.new(name, age, specilaze)
+    puts 'Age:'
+    age = gets.chomp
+    puts 'Name:'
+    name = gets.chomp
+    puts 'permission:'
+    permission = gets.chomp
+    teach = Teacher.new(specilaze, age, name, permission)
     @people.push(teach)
   end
 

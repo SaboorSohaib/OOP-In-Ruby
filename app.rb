@@ -47,7 +47,7 @@ class App
     when 4
       create_a_book
     when 5
-      creae_a_rental
+      create_a_rental
     when 6
       list_all_rentals
     end
@@ -114,6 +114,22 @@ class App
     auth = gets.chomp
     bo = Book.new(tit, auth)
     @book.push(bo)
+    menu
   end
-  
+
+  def create_a_rental
+    puts 'date(yyyy/dd/mm'
+    date = gets.chomp
+    puts 'Select a book'
+    @book.each_with_index { |b, i| puts "#{i} #{b.title} written by #{b.author}" }
+    bookid = gets.chomp.to_i
+    book = @book[bookid]
+    puts "Select a person"
+    @people.each_with_index { |p, i| puts "#{i} #{p.name}" }
+    personid = gets.chomp.to_i
+    person = @people[personid]
+    rental = Rental.new(date, book, person)
+    @rental.push(rental)
+    menu
+  end
 end

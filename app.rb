@@ -106,4 +106,14 @@ class App
     @people.push(teach)
     menu
   end
+
+  def create_a_book
+    pust 'Title'
+    tit = gets.chomp
+    puts 'Author'
+    auth = gets.chomp
+    bo = Book.new(tit, auth)
+    @book.push(bo)
+  end
+  
 end

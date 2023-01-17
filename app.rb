@@ -7,6 +7,7 @@ require_relative 'classroom'
 
 class App
   attr_reader :classroom
+  
   def initialize
     @book = []
     @people = []

@@ -13,52 +13,12 @@ class App
     @rental = []
   end
 
-#   def menu
-#     puts '1 - List all Books'
-#     puts '2 - List all People'
-#     puts '3 - Create a Person'
-#     puts '4 - Create a Book'
-#     puts '5 - Create a Rental'
-#     puts '6 - List all Rentals for a given person id'
-#     puts '7 - Exit'
-#     input
-#   end
-
-#   def input
-#     action = gets.chomp.to_i
-#     if action < 7
-#       select(action)
-#     elsif action == 7
-#       puts 'Good Bye!'
-#     else
-#       puts 'Please selct a number from 1 to 7 to continue'
-#     end
-#   end
-
-#   def select(action)
-#     case action
-#     when 1
-#       list_all_books
-#     when 2
-#       list_all_people
-#     when 3
-#       create_a_person
-#     when 4
-#       create_a_book
-#     when 5
-#       create_a_rental
-#     when 6
-#       list_all_rentals
-#     end
-#   end
-
   def list_all_books
     if @book.empty?
       puts 'There is no book'
     else
       @book.each { |b| puts "#{b.title} written by #{b.author}" }
     end
-    # menu
   end
 
   def list_all_people
@@ -67,7 +27,6 @@ class App
     else
       @people.each { |p| puts "Name:#{p.name} Age:#{p.age} Class:#{p.class} ID:#{p.id}" }
     end
-    # menu
   end
 
   def create_a_person
@@ -79,7 +38,6 @@ class App
     when 2
       create_teacher
     end
-    # menu
   end
 
   def create_student
@@ -93,7 +51,6 @@ class App
     parents_permission = gets.chomp
     std = Student.new(clsroom, age, name, parents_permission)
     @people.push(std)
-    # menu
   end
 
   def create_teacher
@@ -105,7 +62,6 @@ class App
     specilaze = gets.chomp
     teach = Teacher.new(name, age, specilaze)
     @people.push(teach)
-    # menu
   end
 
   def create_a_book
@@ -115,7 +71,6 @@ class App
     auth = gets.chomp
     bo = Book.new(tit, auth)
     @book.push(bo)
-    # menu
   end
 
   def create_a_rental
@@ -131,7 +86,6 @@ class App
     person = @people[personid]
     rental = Rental.new(date, book, person)
     @rental.push(rental)
-    # menu
   end
 
   def list_all_rentals
@@ -144,6 +98,5 @@ class App
         puts "Date: #{r.date}, Book:#{r.book.title} by #{r.book.author}" if r.person.id == id
       end
     end
-    # menu
   end
 end

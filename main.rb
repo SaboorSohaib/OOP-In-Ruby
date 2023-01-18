@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require_relative 'app'
-
+# rubocop:disable Metrics/CyclomaticComplexity
 def main
   app = App.new
 
@@ -35,9 +35,8 @@ def main
       # *Have a way to quit the app.
       puts 'Thank you for using this app!'
     end
-
     puts "\n"
   end
 end
-
+# rubocop:enable Metrics/CyclomaticComplexity
 main

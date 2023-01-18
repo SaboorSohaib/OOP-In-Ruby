@@ -32,7 +32,6 @@ def main
     when '6'
       app.list_all_rentals
     when '7'
-      # *Have a way to quit the app.
       puts 'Thank you for using this app!'
     end
     puts "\n"

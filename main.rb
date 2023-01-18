@@ -14,7 +14,7 @@ def main
     puts '3 - Create a person'
     puts '4 - Create a book'
     puts '5 - Create a rental'
-    puts '6 - List all rental for a given id'
+    puts '6 - List all rentals for a given id'
     puts '7 - Exit'
     response = gets.chomp
 

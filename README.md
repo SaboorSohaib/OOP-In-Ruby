@@ -190,6 +190,7 @@ You can deploy this project using:
 - [ ] - **Add new teacher**
 - [ ] - **Add new book**
 - [ ] - **Add book rental**
+- [ ] - **Add databse**
 
 
 

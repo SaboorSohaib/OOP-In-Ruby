@@ -97,7 +97,7 @@ After you're finished please remove all the comments and instructions!
 > Describe between 1-3 key features of the application.
 
 - **We used oop peinciple in this project**
-- **We have one super class and two base class**
+- **We used decorator design pattern**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

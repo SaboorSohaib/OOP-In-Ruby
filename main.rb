@@ -1,7 +1,5 @@
-require_relative 'starting.rb'
+require_relative 'starting'
 
-def main
-  start = Start.new
-end
+def main; end
 
 main

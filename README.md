@@ -191,7 +191,7 @@ You can deploy this project using:
 - [ ] - **Add new book**
 - [ ] - **Add book rental**
 - [ ] - **Add testing**
-<!-- - [ ] - **Store data** -->
+- [ ] - **Store data**
 
 
 

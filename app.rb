@@ -60,9 +60,9 @@ class App
     age = gets.chomp
     puts 'Name:'
     name = gets.chomp
-    puts 'permission:'
-    permission = gets.chomp
-    teach = Teacher.new(specilaze, age, name, permission)
+    # puts 'permission:'
+    # permission = gets.chomp
+    teach = Teacher.new(specilaze, age, name)
     @people.push(teach)
   end
 

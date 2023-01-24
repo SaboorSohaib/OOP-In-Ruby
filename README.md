@@ -173,9 +173,15 @@ You can deploy this project using:
 
 👤 **Abdul Saboor Sohaib**
 
-- GitHub: [@githubhandle](https://github.com/SaboorSohaib)
-- Twitter: [@twitterhandle](https://twitter.com/absaboorsohaib)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/abdul-saboor-sohaib/)
+- GitHub: [@SaboorSohaib](https://github.com/SaboorSohaib)
+- Twitter: [@SaboorSohaib](https://twitter.com/absaboorsohaib)
+- LinkedIn: [@SaboorSohaib](https://www.linkedin.com/in/abdul-saboor-sohaib/)
+
+👤 **Ngufor Emmanuella**
+
+- GitHub: [@Ngufor-emmanuella](https://github.com/Ngufor-emmanuella)
+- Twitter: [@Ngufor-emmanuella](https://twitter.com/Ngufor-emmanuella)
+- LinkedIn: [@Ngufor-emmanuella](https://www.linkedin.com/in/Ngufor-emmanuella/)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

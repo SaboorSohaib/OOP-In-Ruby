@@ -6,29 +6,7 @@ require_relative 'rentals'
 require_relative 'classroom'
 require_relative 'nameable'
 
-class App
-  def initialize
-    @book = []
-    @people = []
-    @rental = []
-  end
-
-  def list_all_books
-    if @book.empty?
-      puts 'There is no book'
-    else
-      @book.each { |b| puts "#{b.title} written by #{b.author}" }
-    end
-  end
-
-  def list_all_people
-    if @people.empty?
-      puts 'There is no people'
-    else
-      @people.each { |p| puts "Name:#{p.name} Age:#{p.age} Class:#{p.class} ID:#{p.id}" }
-    end
-  end
-
+module Create
   def create_a_person
     puts 'Do you want to create a student (1) or teacher (2)'
     x = gets.chomp.to_i
@@ -60,10 +38,26 @@ class App
     age = gets.chomp
     puts 'Name:'
     name = gets.chomp
-    puts 'permission:'
-    permission = gets.chomp
-    teach = Teacher.new(specilaze, age, name, permission)
+    teach = Teacher.new(specilaze, age, name)
     @people.push(teach)
+  end
+
+  def list_all_people
+    if @people.empty?
+      puts 'There is no people'
+    else
+      @people.each { |p| puts "Name:#{p.name} Age:#{p.age} Class:#{p.class} ID:#{p.id}" }
+    end
+  end
+end
+
+module Books
+  def list_all_books
+    if @book.empty?
+      puts 'There is no book'
+    else
+      @book.each { |b| puts "#{b.title} written by #{b.author}" }
+    end
   end
 
   def create_a_book
@@ -74,6 +68,17 @@ class App
     bo = Book.new(tit, auth)
     @book.push(bo)
   end
+end
+
+class App
+  def initialize
+    @book = []
+    @people = []
+    @rental = []
+  end
+
+  include Create
+  include Books
 
   def create_a_rental
     puts 'date(yyyy/dd/mm)'

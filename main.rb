@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 require_relative 'app'
 # rubocop:disable Metrics/CyclomaticComplexity
 def main

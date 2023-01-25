@@ -31,6 +31,7 @@ module Create
     parents_permission = gets.chomp
     std = Student.new(clsroom, age, name, parents_permission)
     @people.push(std)
+    person_string
   end
 
   def create_teacher
@@ -42,6 +43,7 @@ module Create
     name = gets.chomp
     teach = Teacher.new(specilaze, age, name)
     @people.push(teach)
+    person_string
   end
 
   def list_all_people
@@ -71,7 +73,7 @@ module Books
     @book.push(bo)
     jsonarray = []
     @book.each { |item| jsonarray.push({ title: item.title, author: item.author }) }
-    json.JSON.generate(jsonarray)
+    json = JSON.generate(jsonarray)
     File.write('book.json', json)
   end
 end

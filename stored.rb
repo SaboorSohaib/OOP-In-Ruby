@@ -18,7 +18,8 @@ def list_all_stored_people
     peoplejson = peoplefile.read
     JSON.parse(peoplejson).map do |pep|
       if pep['classroom']
-        @people.push(Student.new(pep['classroom'], pep['age'], pep['name'], parents_permission: pep['parents_permission']))
+        @people.push(Student.new(pep['classroom'], pep['age'], pep['name'],
+                                 parents_permission: pep['parents_permission']))
       else
         @people.push(Teacher.new(pep['specialization'], pep['age'], pep['name']))
       end
@@ -50,15 +51,11 @@ def person_string
   @people.each do |item|
     if item.instance_of?(Student)
       jsonarray.push({ classroom: item.classroom, age: item.age, name: item.name,
-        parents_permission: item.parents_permission, id: item.id })
-      else
-        jsonarray.push({ age: item.age, name: item.name, id: item.id })
-      end
+                       parents_permission: item.parents_permission, id: item.id })
+    else
+      jsonarray.push({ age: item.age, name: item.name, id: item.id })
     end
-    json = JSON.generate(jsonarray)
-    File.write('people.json', json)
   end
-
-
-
-
+  json = JSON.generate(jsonarray)
+  File.write('people.json', json)
+end

@@ -112,7 +112,7 @@ class App
     @rental.each do |item|
       jsonarray.push({ date: item.date,
                        book: { title: item.book.title, author: item.book.author },
-                       person: { id: item.person.id, name: item.person.name, age: item.person.age }})
+                       person: { id: item.person.id, name: item.person.name, age: item.person.age } })
     end
     File.write('rental.json', JSON.generate(jsonarray))
   end

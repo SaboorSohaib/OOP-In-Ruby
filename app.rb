@@ -5,6 +5,8 @@ require_relative 'teacher'
 require_relative 'rentals'
 require_relative 'classroom'
 require_relative 'nameable'
+require_relative 'stored'
+require 'json'
 
 module Create
   def create_a_person
@@ -67,6 +69,10 @@ module Books
     auth = gets.chomp
     bo = Book.new(tit, auth)
     @book.push(bo)
+    jsonarray = []
+    @book.each { |item| jsonarray.push({ title: item.title, author: item.author }) }
+    json.JSON.generate(jsonarray)
+    File.write('book.json', json)
   end
 end
 
@@ -75,6 +81,9 @@ class App
     @book = []
     @people = []
     @rental = []
+    list_all_stored_books
+    list_all_stored_people
+    list_all_stored_rentals
   end
 
   include Create
@@ -93,6 +102,17 @@ class App
     person = @people[personid]
     rental = Rental.new(date, book, person)
     @rental.push(rental)
+    store_all_rentals
+  end
+
+  def store_all_rentals
+    jsonarray = []
+    @rental.each do |item|
+      jsonarray.push({ date: item.date,
+                       book: { title: item.book.title, author: item.book.author },
+                       person: { id: item.person.id, name: item.person.name, age: item.person.age }})
+    end
+    File.write('rental.json', JSON.generate(jsonarray))
   end
 
   def list_all_rentals

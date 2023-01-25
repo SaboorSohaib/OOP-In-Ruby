@@ -34,13 +34,27 @@ def list_all_stored_rentals
     rentalfile = File.open('rental.json')
     rentaljson = rentalfile.read
     JSON.parse(rentaljson).map do |ren|
-        book = Book.new(ren['book']['title'], ren['book']['author'])
-        person = Student.new('120', ren['person']['age'], ren['person']['name'], ren['person']['id'])
-        item = Rental.new(ren['date'], book, person)
-        @rental.push(item)
+      book = Book.new(ren['book']['title'], ren['book']['author'])
+      person = Student.new('120', ren['person']['age'], ren['person']['name'], ren['person']['id'])
+      item = Rental.new(ren['date'], book, person)
+      @rental.push(item)
     end
     rentalfile.close
   else
     File.new('rental.json', 'w')
   end
+end
+
+def person_string
+  jsonarray = []
+  @people.each do |item|
+    if item.instance_of?(Student)
+      jsonarray.push({ classroom: item.classroom, age: item.age, name: item.name,
+                       permission: item.permission, id: item.id })
+    else
+      jsonarray.push({ age: item.age, name: item.name, permission: true, id: item.id })
+    end
+  end
+  json = JSON.generate(jsonarray)
+  File.write('people.json', json)
 end

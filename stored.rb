@@ -45,17 +45,3 @@ def list_all_stored_rentals
     File.new('rental.json', 'w')
   end
 end
-
-# def person_string
-#   jsonarr = []
-#   @people.each do |item|
-#     if item.instance_of?(Student)
-#       jsonarr.push({ classroom: item.classroom, age: item.age, name: item.name,
-#                      parents_permission: item.parents_permission, id: item.id })
-#     else
-#       jsonarr.push({ age: item.age, name: item.name, id: item.id })
-#     end
-#   end
-#   json = JSON.generate(jsonarr)
-#   File.write('people.json', json)
-# end

@@ -29,7 +29,7 @@ module Create
     name = gets.chomp
     puts 'permission:'
     parents_permission = gets.chomp
-    std = Student.new(clsroom, age, name, parents_permission)
+    std = Student.new(clsroom, age, name, parents_permission: parents_permission)
     @people.push(std)
     person_string
   end
@@ -44,6 +44,20 @@ module Create
     teach = Teacher.new(specilaze, age, name)
     @people.push(teach)
     person_string
+  end
+
+  def person_string
+    jsonarray = []
+    @people.each do |item|
+      if item.instance_of?(Student)
+        jsonarray.push({ classroom: item.classroom, age: item.age, name: item.name,
+                         parents_permission: item.parents_permission, id: item.id })
+      else
+        jsonarray.push({ age: item.age, name: item.name, id: item.id })
+      end
+    end
+    json = JSON.generate(jsonarray)
+    File.write('people.json', json)
   end
 
   def list_all_people

@@ -36,7 +36,7 @@ def list_all_stored_rentals
     rentaljson = rentalfile.read
     JSON.parse(rentaljson).map do |ren|
       book = Book.new(ren['book']['title'], ren['book']['author'])
-      person = Student.new('120', ren['person']['age'], ren['person']['name'], ren['person']['id'])
+      person = Student.new('11a', ren['person']['age'], ren['person']['name'], ren['person']['id'])
       item = Rental.new(ren['date'], book, person)
       @rental.push(item)
     end
@@ -46,16 +46,16 @@ def list_all_stored_rentals
   end
 end
 
-def person_string
-  jsonarray = []
-  @people.each do |item|
-    if item.instance_of?(Student)
-      jsonarray.push({ classroom: item.classroom, age: item.age, name: item.name,
-                       parents_permission: item.parents_permission, id: item.id })
-    else
-      jsonarray.push({ age: item.age, name: item.name, id: item.id })
-    end
-  end
-  json = JSON.generate(jsonarray)
-  File.write('people.json', json)
-end
+# def person_string
+#   jsonarr = []
+#   @people.each do |item|
+#     if item.instance_of?(Student)
+#       jsonarr.push({ classroom: item.classroom, age: item.age, name: item.name,
+#                      parents_permission: item.parents_permission, id: item.id })
+#     else
+#       jsonarr.push({ age: item.age, name: item.name, id: item.id })
+#     end
+#   end
+#   json = JSON.generate(jsonarr)
+#   File.write('people.json', json)
+# end

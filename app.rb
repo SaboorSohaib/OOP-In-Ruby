@@ -1,10 +1,9 @@
-require_relative 'person'
 require_relative 'book'
 require_relative 'student'
 require_relative 'teacher'
 require_relative 'rentals'
-require_relative 'classroom'
-require_relative 'nameable'
+require_relative 'stored'
+require 'json'
 
 module Create
   def create_a_person
@@ -27,8 +26,9 @@ module Create
     name = gets.chomp
     puts 'permission:'
     parents_permission = gets.chomp
-    std = Student.new(clsroom, age, name, parents_permission)
+    std = Student.new(clsroom, age, name, parents_permission, id: Random.rand(1..1000))
     @people.push(std)
+    person_string
   end
 
   def create_teacher
@@ -38,14 +38,30 @@ module Create
     age = gets.chomp
     puts 'Name:'
     name = gets.chomp
-    teach = Teacher.new(specilaze, age, name)
+    teach = Teacher.new(specilaze, age, name, id: Random.rand(1..1000))
     @people.push(teach)
+    person_string
+  end
+
+  def person_string
+    jsonarray = []
+    @people.each do |item|
+      if item.instance_of?(Student)
+        jsonarray.push({ classroom: item.classroom, age: item.age, name: item.name,
+                         parents_permission: item.parents_permission, id: item.id })
+      else
+        jsonarray.push({ age: item.age, name: item.name, id: item.id })
+      end
+    end
+    json = JSON.generate(jsonarray)
+    File.write('people.json', json)
   end
 
   def list_all_people
     if @people.empty?
       puts 'There is no people'
     else
+      puts @people.first.id
       @people.each { |p| puts "Name:#{p.name} Age:#{p.age} Class:#{p.class} ID:#{p.id}" }
     end
   end
@@ -67,6 +83,10 @@ module Books
     auth = gets.chomp
     bo = Book.new(tit, auth)
     @book.push(bo)
+    jsonarray = []
+    @book.each { |item| jsonarray.push({ title: item.title, author: item.author }) }
+    json = JSON.generate(jsonarray)
+    File.write('book.json', json)
   end
 end
 
@@ -75,6 +95,9 @@ class App
     @book = []
     @people = []
     @rental = []
+    list_all_stored_books
+    list_all_stored_people
+    list_all_stored_rentals
   end
 
   include Create
@@ -93,6 +116,17 @@ class App
     person = @people[personid]
     rental = Rental.new(date, book, person)
     @rental.push(rental)
+    store_all_rentals
+  end
+
+  def store_all_rentals
+    jsonarray = []
+    @rental.each do |item|
+      jsonarray.push({ date: item.date,
+                       book: { title: item.book.title, author: item.book.author },
+                       person: { id: item.person.id, name: item.person.name, age: item.person.age } })
+    end
+    File.write('rental.json', JSON.generate(jsonarray))
   end
 
   def list_all_rentals

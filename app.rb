@@ -26,7 +26,7 @@ module Create
     name = gets.chomp
     puts 'permission:'
     parents_permission = gets.chomp
-    std = Student.new(clsroom, age, name, parents_permission: parents_permission)
+    std = Student.new(clsroom, age, name, parents_permission, id: Random.rand(1..1000))
     @people.push(std)
     person_string
   end
@@ -38,7 +38,7 @@ module Create
     age = gets.chomp
     puts 'Name:'
     name = gets.chomp
-    teach = Teacher.new(specilaze, age, name)
+    teach = Teacher.new(specilaze, age, name, id: Random.rand(1..1000))
     @people.push(teach)
     person_string
   end
@@ -61,6 +61,7 @@ module Create
     if @people.empty?
       puts 'There is no people'
     else
+      puts @people.first.id
       @people.each { |p| puts "Name:#{p.name} Age:#{p.age} Class:#{p.class} ID:#{p.id}" }
     end
   end

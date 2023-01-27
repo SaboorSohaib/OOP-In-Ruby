@@ -19,7 +19,7 @@ def list_all_stored_people
     JSON.parse(peoplejson).map do |pep|
       if pep['classroom']
         @people.push(Student.new(pep['classroom'], pep['age'], pep['name'],
-                                 parents_permission: pep['parents_permission']))
+                                 pep['parents_permission'], id: pep['id']))
       else
         @people.push(Teacher.new(pep['specialization'], pep['age'], pep['name']))
       end
@@ -36,7 +36,8 @@ def list_all_stored_rentals
     rentaljson = rentalfile.read
     JSON.parse(rentaljson).map do |ren|
       book = Book.new(ren['book']['title'], ren['book']['author'])
-      person = Student.new('11a', ren['person']['age'], ren['person']['name'], ren['person']['id'])
+      person = Student.new('11a', ren['person']['age'], ren['person']['name'], ren['person']['parents_permission'],
+                           id: ren['person']['id'])
       item = Rental.new(ren['date'], book, person)
       @rental.push(item)
     end

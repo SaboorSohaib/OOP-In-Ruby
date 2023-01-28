@@ -98,7 +98,7 @@ After you're finished please remove all the comments and instructions!
 
 - **We used oop peinciple in this project**
 - **We used decorator design pattern**
-- **We set up some associations**
+- **We set up TDD method to carry out rspec test**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
